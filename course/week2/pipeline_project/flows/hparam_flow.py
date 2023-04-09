@@ -31,7 +31,7 @@ class DigitClassifierFlow(FlowSpec):
   config (str, default: ./config.py): path to a configuration file
   """ 
   config_path = Parameter('config', 
-    help = 'path to config file', default='./configs/hparam_flow.json')
+    help = 'path to config file', default='../configs/hparam_flow.json')
 
   @step
   def start(self):
@@ -107,7 +107,10 @@ class DigitClassifierFlow(FlowSpec):
     # Pseudocode:
     # --
     # aggregate scores using `inputs`
-    # best_index = ...
+    for input in inputs:
+      scores.append(input.callback.best_model_score)
+    
+    best_index = scores.index(max(scores))
     #
     # Type:
     # --

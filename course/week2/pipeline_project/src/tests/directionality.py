@@ -162,7 +162,7 @@ class MNISTDirectionalityTest(BaseTest):
       # 
       # Pseudocode:
       # --
-      # batch_metric = ...
+      batch_metric = torch.mean((preds_raw == preds_transformed).float()).item()
       # 
       # Type:
       # --

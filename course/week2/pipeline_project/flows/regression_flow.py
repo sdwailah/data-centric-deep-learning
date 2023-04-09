@@ -32,7 +32,7 @@ class DigitClassifierFlow(FlowSpec):
   config (str, default: ./config.py): path to a configuration file
   """
   config_path = Parameter('config', 
-    help = 'path to config file', default='./configs/regression_flow.json')
+    help = 'path to config file', default='../configs/regression_flow.json')
 
   @step
   def start(self):
